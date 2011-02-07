@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-It's pretty cool though.
-=======
-
->>>>>>> b56674b2d2531011c47550d2ee51cdd16d65b0d4
