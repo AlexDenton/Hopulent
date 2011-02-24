@@ -30,7 +30,7 @@ class Beer(models.Model):
     def __unicode__(self):
         return self.name
 
-class Breweries(models.Model):
+class Brewer(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=765)
     address1 = models.CharField(max_length=765)
@@ -47,6 +47,9 @@ class Breweries(models.Model):
     last_mod = models.DateTimeField()
     class Meta:
         db_table = u'breweries'
+    def __unicode__(self):
+        return self.name
+
 
 class BreweriesGeocode(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -56,19 +59,27 @@ class BreweriesGeocode(models.Model):
     accuracy = models.CharField(max_length=765)
     class Meta:
         db_table = u'breweries_geocode'
+    def __unicode__(self):
+        return self.accuracy
 
-class Categories(models.Model):
+class Category(models.Model):
     id = models.IntegerField(primary_key=True)
     cat_name = models.CharField(max_length=765)
     last_mod = models.DateTimeField()
     class Meta:
         db_table = u'categories'
+    def __unicode__(self):
+        return self.cat_name
 
-class Styles(models.Model):
+
+class Style(models.Model):
     id = models.IntegerField(primary_key=True)
     cat_id = models.IntegerField()
     style_name = models.CharField(max_length=765)
     last_mod = models.DateTimeField()
     class Meta:
         db_table = u'styles'
+    def __unicode__(self):
+        return self.style_name
+
 

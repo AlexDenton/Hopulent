@@ -75,9 +75,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'Hopulent.urls'
+ROOT_URLCONF = 'hopulent.urls'
+
+AUTH_PROFILE_MODULE = 'account.UserProfile'
 
 TEMPLATE_DIRS = (
+    '/home/alex/Websites/Hopulent/media/templates',
+    '/home/alex/Websites/Hopulent/media/templates/account'
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
