@@ -31,12 +31,12 @@ def login(request):
 		form = LoginForm(request.POST)
 		if form.is_valid():
 			# process data
-			return render_to_response('win.html')
+			return render_to_response('account/win.html')
 		
 	else:
 		form = LoginForm()
-		render_to_response('login.html', {'form': form}, context_instance=RequestContext(request))
+		render_to_response('account/login.html', {'form': form}, context_instance=RequestContext(request))
 			
-	return render_to_response('login.html', {'form': form}, context_instance=RequestContext(request))
+	return render_to_response('account/login.html', {'form': form}, context_instance=RequestContext(request))
 	
 	

@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^user/(\w+)/$', 'account.views.user'),
     (r'^login/$', 'account.views.login'),
+    (r'^browse/beer/(\d+)/$', 'browse.views.beer'),
     # Example:
     # (r'^Hopulent/', include('Hopulent.foo.urls')),
 
