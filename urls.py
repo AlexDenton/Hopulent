@@ -5,6 +5,11 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^browse/$', 'browse.views.index'),
+    (r'^browse/beer/$', 'browse.views.beer'),
+    (r'^browse/breweries/$', 'browse.views.brewery'),
+    (r'^browse/styles/$', 'browse.views.style'),
+    (r'^browse/categories/$', 'browse.views.category'),
     # Example:
     # (r'^Hopulent/', include('Hopulent.foo.urls')),
 

@@ -47,6 +47,8 @@ class Breweries(models.Model):
     last_mod = models.DateTimeField()
     class Meta:
         db_table = u'breweries'
+    def __unicode__(self):
+	return self.name
 
 class BreweriesGeocode(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -56,6 +58,8 @@ class BreweriesGeocode(models.Model):
     accuracy = models.CharField(max_length=765)
     class Meta:
         db_table = u'breweries_geocode'
+    def __unicode__(self):
+	return self.brewery_id
 
 class Categories(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -63,6 +67,8 @@ class Categories(models.Model):
     last_mod = models.DateTimeField()
     class Meta:
         db_table = u'categories'
+    def __unicode__(self):
+	return self.cat_name
 
 class Styles(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -71,4 +77,6 @@ class Styles(models.Model):
     last_mod = models.DateTimeField()
     class Meta:
         db_table = u'styles'
+    def __unicode__(self):
+	return self.style_name
 
