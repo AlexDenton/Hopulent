@@ -48,6 +48,7 @@ class Breweries(models.Model):
     class Meta:
         db_table = u'breweries'
     def __unicode__(self):
+
 	return self.name
 
 class BreweriesGeocode(models.Model):
@@ -59,7 +60,7 @@ class BreweriesGeocode(models.Model):
     class Meta:
         db_table = u'breweries_geocode'
     def __unicode__(self):
-	return self.brewery_id
+        return self.accuracy
 
 class Categories(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -79,4 +80,5 @@ class Styles(models.Model):
         db_table = u'styles'
     def __unicode__(self):
 	return self.style_name
+
 

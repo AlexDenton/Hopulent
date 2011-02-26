@@ -6,10 +6,14 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^browse/$', 'browse.views.index'),
-    (r'^browse/beer/$', 'browse.views.beer'),
+    (r'^browse/beers/$', 'browse.views.beers'),
     (r'^browse/breweries/$', 'browse.views.brewery'),
     (r'^browse/styles/$', 'browse.views.style'),
     (r'^browse/categories/$', 'browse.views.category'),
+    (r'^user/(\w+)/$', 'account.views.user'),
+    (r'^login/$', 'account.views.login'),
+    (r'^browse/beer/(\d+)/$', 'browse.views.beer'),
+
     # Example:
     # (r'^Hopulent/', include('Hopulent.foo.urls')),
 

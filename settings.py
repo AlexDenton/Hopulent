@@ -79,6 +79,14 @@ ROOT_URLCONF = 'hopulent.urls'
 
 TEMPLATE_DIRS = (
     "/home/didier/hopulent/HopulentTemplates",
+
+#AUTH_PROFILE_MODULE = 'account.UserProfile'
+
+#TEMPLATE_DIRS = (
+    #'/home/alex/Websites/hopulent/media/templates/',
+    #'/home/alex/Websites/hopulent/media/templates/account/',
+    #'/home/alex/Websites/hopulent/media/templates/browse/',
+
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

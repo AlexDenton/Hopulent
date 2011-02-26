@@ -1,3 +1,4 @@
+
 # Create your views here.
 from django.http import HttpResponse
 from django.template import Context, loader
@@ -7,9 +8,9 @@ def index(request):
     t = loader.get_template('browse/index.html')
     c = Context({"This is a beer": "This is a beer"})
     return HttpResponse(t.render(c))
-def beer(request):
+def beers(request):
     list_of_beers = Beer.objects.all().order_by('name')
-    t = loader.get_template('browse/beer.html')
+    t = loader.get_template('browse/beers.html')
     c = Context({'list_of_beers': list_of_beers,})
     return HttpResponse(t.render(c))
 def brewery(request):
@@ -27,3 +28,7 @@ def style(request):
     t = loader.get_template('browse/style.html')
     c = Context({'list_of_styles': list_of_styles,})
     return HttpResponse(t.render(c))
+
+#def beer(request, beer_id):
+#	beer = get_object_or_404(Beer, pk=beer_id)
+#	return render_to_response('browse/beer.html', {'beer': beer})		
