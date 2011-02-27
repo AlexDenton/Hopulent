@@ -1,0 +1,4 @@
+<ul>
+{% for beer in list_of_beers %}
+    <li><a href="/beer/{{ beer.id }}">{{beer.name}}</a></li>
+{% endfor %}

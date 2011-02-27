@@ -1,0 +1,25 @@
+<h1>{{ brewery.name }}</h1>
+
+<p>Address: {{ brewery.address1 }}</p>
+
+<p>City: {{ brewery.city }}</p>
+
+<p>State: {{ brewery.state }}</p>
+
+<p>Code: {{ brewery.code }}</p>
+
+<p>Country: {{ brewery.country }}</p>
+
+<p>Phone: {{ brewery.phone }}</p>
+
+<p>Website: {{ brewery.website }}</p>
+
+<p>Description: {{ brewery.descript }}</p>
+
+</br>
+
+<p><strong>List of Beers:</strong></p>
+
+{% for beer in list_of_beers %}
+	<li><a href="/beer/{{ beer.id }}">{{beer.name}}</a></li>
+{% endfor %}

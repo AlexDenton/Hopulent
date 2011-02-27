@@ -14,7 +14,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'hopulent',                      # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'diamond',                  # Not used with sqlite3.
+        'PASSWORD': 'qingjin//',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '3306',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -77,19 +77,17 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'hopulent.urls'
 
+AUTH_PROFILE_MODULE = 'account.UserProfile'
+
 TEMPLATE_DIRS = (
-    "/home/didier/hopulent/HopulentTemplates",
+    '/home/alex/hopulent/templates/',
+    '/home/alex/hopulent/templates/account/',
+    '/home/alex/hopulent/templates/browse/',
+    '/home/alex/hopulent/templates/admin/',
 
-#AUTH_PROFILE_MODULE = 'account.UserProfile'
-
-#TEMPLATE_DIRS = (
-    #'/home/alex/Websites/hopulent/media/templates/',
-    #'/home/alex/Websites/hopulent/media/templates/account/',
-    #'/home/alex/Websites/hopulent/media/templates/browse/',
-
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+     #Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+     #Always use forward slashes, even on Windows.
+     #Don't forget to use absolute paths, not relative paths.
 )
 
 INSTALLED_APPS = (
@@ -99,6 +97,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'browse',
+    'beer',
+    'brewery',
+    'category',
+    'style',
+    'brewerygeocode',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
