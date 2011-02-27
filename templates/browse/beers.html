@@ -1,4 +1,20 @@
-<ul>
-{% for beer in list_of_beers %}
-    <li><a href="/beer/{{ beer.id }}">{{beer.name}}</a></li>
-{% endfor %}
+<h1><strong><CENTER>BROWSE</CENTER></strong></h1>
+	<table border="1" cellspacing="0" cellpadding="7">
+	<tr>
+	<th><a href="/browse/styles">STYLE</a></th>
+	<th><a href="/browse/categories">LOCATION</th>
+	<th><a href="/browse/breweries">BREWERY</th>
+	<th>ALL</th>
+	</tr>
+	{% for beer in list_of_beers %}
+		<tr><td><p><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></p></td>
+		{% for brewery in list_ofbreweries %}
+			{% ifequal beer.id brewery.id %}
+				<td><p>{{ brewery.name }}</p></td>
+			{% endifequal %}
+		{% endfor %}
+		</tr>
+	{% endfor %}
+	<td></td>
+	<td></td>
+

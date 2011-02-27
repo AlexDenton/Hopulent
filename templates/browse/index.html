@@ -1,8 +1,15 @@
 <h1><strong><CENTER>BROWSE</CENTER></strong></h1>
-	<ul>
-		<li><a href="/browse/beers">name of beer</a></li>
-		<li><a href="/browse/breweries">brewery</a></li>
-		<li><a href="/browse/categories">category</a></li>
-		<li><a href="/browse/styles">style</a></li>
-	</ul>
+	<table border="1" cellspacing="0" cellpadding="7">
+	<tr>
+	<th><a href="/browse/styles">STYLE</a></th>
+	<th><a href="/browse/categories">LOCATION</th>
+	<th><a href="/browse/breweries">BREWERY</th>
+	<th><a href="/browse/beers">ALL</th>
+	</tr>
+	<tr>
+	<td><p>Latest beers!</p>
+	{% for beer in list_of_latest_beers %}
+    		<p><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></p>
+	{% endfor %}
+	</tr>
 
