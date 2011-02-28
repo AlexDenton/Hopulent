@@ -1,8 +1,8 @@
 from django.shortcuts import render_to_response
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django import forms
 from django.template import RequestContext
+from django.contrib.auth import authenticate, login
 
 class LoginForm(forms.Form):
 	username = forms.CharField(max_length=20)
@@ -11,28 +11,19 @@ class LoginForm(forms.Form):
 def user(request, username):
 	age = request.user.profile.age
 	return HttpResponse(age)
-
-def authenticate(request):
-	username = request.POST['username']
-	password = request.POST['password']
-	user = authenticate(username=username, password=password)
-	if user is not None:
-		if user.is_active:
-			login(request, user)
-			return HttpResponse('Sucess!') 
-		else:
-			return HttpResponse('Account disabled.')
-	else:
-		return HttpResponse('Invalid login.')
-			
 	
-def login(request):
+def loginify(request, username, password):
 	if request.method == 'POST':
 		form = LoginForm(request.POST)
-		if form.is_valid():
-			# process data
-			return render_to_response('account/win.html')
-		
+		if form.is_valid():			
+			username = form.cleaned_data['username']
+			password = form.cleaned_data['password']
+			user = authenticate(username=username, password=password)
+			if user is not None:
+				login(request, user)
+				return render_to_response('account/win.html')
+			else:
+				return render_to_response('account/fail.html')
 	else:
 		form = LoginForm()
 		render_to_response('account/login.html', {'form': form}, context_instance=RequestContext(request))
