@@ -1,4 +1,13 @@
-<ul>
-{% for brewery in list_of_breweries %}
-    <li><a href="/brewery/{{ brewery.id }}">{{brewery.name}}</a></li>
-{% endfor %}
+<h1><strong><CENTER><a href="/browse/">BROWSE</a></CENTER></strong></h1>
+	<table border="1" cellspacing="0" cellpadding="7">
+	<p><a href="/browse/styles">STYLE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/location">LOCATION</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	BREWERY&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/beers">ALL</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+	<tr><th>Choose A Brewery:</th></tr>
+	<td>
+	{% for brewery in list_of_breweries %}
+		<p><a href="/browse/breweries/{{ brewery.id }}">{{ brewery.name }}</p>
+	{% endfor %}
+	</td>
+	</tr>

@@ -2,13 +2,15 @@
 
 <p>Brewery: <a href="/brewery/{{ brewery.id }}">{{ brewery.name }}</a></p>
 
-<p>Style: {{ style.name }}</p>
+<p>Style: <a href="/style/{{ style.id }}">{{ style.style_name }}</a></p>
 
-<p>Category: {{ cat.name }}</p>
+<p>Category: {{ cat.cat_name }}</p>
 
 <p>ABV: {{ beer.abv }}</p>
 
 <p>IBU: {{ beer.ibu }}</p>
 
 <p>Description: {{ beer.descript }}</p>
+
+<p>Rating: {{ rating }}</p>
 

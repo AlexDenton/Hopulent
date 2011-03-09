@@ -1,0 +1,19 @@
+<h1>Hopulent</h1>
+
+<p><a href=/browse>Browse</a></p>
+<p><a href=/learn>Learn</a></p>
+<p><a href=/aboutus>About us</a></p>
+<p><a href=/contribute>Contribute</a></p>
+
+<form action="/search/" method="post">{% csrf_token %}
+{{ searchForm.as_p }}
+<input type="submit" value="Search" />
+</form>
+
+
+<p><strong>Sign in</strong></p>
+
+<form action="/" method="post">{% csrf_token %}
+{{ signinForm.as_p }}
+<input type="submit" value="Submit" />
+</form>

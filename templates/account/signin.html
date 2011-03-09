@@ -1,0 +1,6 @@
+<h1>Sign in</h1>
+
+<form action="/signin/" method="post">{% csrf_token %}
+{{ signinForm.as_p }}
+<input type="submit" value="Submit" />
+</form>

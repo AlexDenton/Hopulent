@@ -81,9 +81,10 @@ AUTH_PROFILE_MODULE = 'account.UserProfile'
 
 TEMPLATE_DIRS = (
     '/home/alex/hopulent/templates/',
-    '/home/alex/hopulent/templates/account/',
-    '/home/alex/hopulent/templates/browse/',
-    '/home/alex/hopulent/templates/admin/',
+    #'/home/alex/hopulent/templates/account/',
+    #'/home/alex/hopulent/templates/browse/',
+    #'/home/alex/hopulent/templates/admin/',
+    #'/home/alex/hopulent/templates/abouts/',
 
      #Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
      #Always use forward slashes, even on Windows.
@@ -102,6 +103,7 @@ INSTALLED_APPS = (
     'category',
     'style',
     'brewerygeocode',
+    'review',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

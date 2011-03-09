@@ -1,4 +1,13 @@
-<ul>
-{% for styles in list_of_styles %}
-    <li>{{styles.style_name}}</li>
-{% endfor %}
+<h1><strong><CENTER><a href="/browse/">BROWSE</a></CENTER></strong></h1>
+	<table border="1" cellspacing="0" cellpadding="7"><p>
+	STYLE&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/location">LOCATION</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/breweries">BREWERY</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/beers">ALL</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+	<tr><th>Choose A Style:</th></tr>
+	<td>
+	{% for style in list_of_styles %}
+		<p><a href="/browse/styles/{{ style.id }}">{{ style.style_name }}</p>
+	{% endfor %}
+	</td>
+	</tr>

@@ -4,17 +4,13 @@ from django import forms
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login
 
-class LoginForm(forms.Form):
+class SigninForm(forms.Form):
 	username = forms.CharField(max_length=20)
 	password = forms.CharField(max_length=20, widget=forms.PasswordInput)
-
-def user(request, username):
-	age = request.user.profile.age
-	return HttpResponse(age)
 	
-def loginify(request, username, password):
+def signin(request, username, password):
 	if request.method == 'POST':
-		form = LoginForm(request.POST)
+		form = SigninForm(request.POST)
 		if form.is_valid():			
 			username = form.cleaned_data['username']
 			password = form.cleaned_data['password']
@@ -25,9 +21,9 @@ def loginify(request, username, password):
 			else:
 				return render_to_response('account/fail.html')
 	else:
-		form = LoginForm()
-		render_to_response('account/login.html', {'form': form}, context_instance=RequestContext(request))
+		form = SigninForm()
+		render_to_response('account/signin.html', {'form': form}, context_instance=RequestContext(request))
 			
-	return render_to_response('account/login.html', {'form': form}, context_instance=RequestContext(request))
+	return render_to_response('account/signin.html', {'form': form}, context_instance=RequestContext(request))
 	
 	

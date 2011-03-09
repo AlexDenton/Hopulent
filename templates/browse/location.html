@@ -1,0 +1,13 @@
+<h1><strong><CENTER><a href="/browse/">BROWSE</a></CENTER></strong></h1>
+	<table border="1" cellspacing="0" cellpadding="7"><p>
+	<a href="/browse/styles">STYLE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	LOCATION&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/breweries">BREWERY</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/beers">ALL</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+	<tr><th>Choose A Location:</th></tr>
+	<td>
+	{% for brewery in list_of_locations %}
+		<p><a href="/browse/location/{{ brewery.state }}">{{ brewery.state }}</p>
+	{% endfor %}
+	</td>
+	</tr>
