@@ -30,8 +30,9 @@ def styles(request):
 def styledetail(request, style_id):
 	style = get_object_or_404(Style, pk=style_id)
 	list_of_beers = Beer.objects.filter(style_id=style.id)
+	list_of_breweries = Brewery.objects.all().order_by('name')
 	return render_to_response('browse/styledetail.html', {'style': style, 'list_of_beers':
-list_of_beers})
+list_of_beers, 'list_of_breweries': list_of_breweries})
 
 def categories(request):
 	list_of_categories = Category.objects.all().order_by('cat_name')
@@ -39,7 +40,7 @@ def categories(request):
 list_of_categories})
 
 def location(request):
-	list_of_locations = Brewery.objects.all().order_by('state')
+	list_of_locations = Brewery.objects.values('state').distinct().order_by('state')
 	return render_to_response('browse/location.html', {'list_of_locations':
 list_of_locations})
 

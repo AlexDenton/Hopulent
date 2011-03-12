@@ -22,7 +22,7 @@
 	</th>
 	{% for beer in list_of_beers %}
 		<tr><td><p><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></p></td>
-		<td><p><a href="/brewery/{{ brewery.id }}">{{ brewery.name }}</a></p></td>
+		<td><p><a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery_id }}</a></p></td>
 		<td><p>A Rating</p></td>
 		<td><p>{{ beer.abv }}</p></td>
 		<td><p>{{ beer.ibu }}</p></td></tr>

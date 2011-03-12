@@ -14,7 +14,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'hopulent',                      # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'qingjin//',                  # Not used with sqlite3.
+        'PASSWORD': 'diamond',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '3306',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -80,11 +80,11 @@ ROOT_URLCONF = 'hopulent.urls'
 AUTH_PROFILE_MODULE = 'account.UserProfile'
 
 TEMPLATE_DIRS = (
-    '/home/alex/hopulent/templates/',
-    #'/home/alex/hopulent/templates/account/',
-    #'/home/alex/hopulent/templates/browse/',
-    #'/home/alex/hopulent/templates/admin/',
-    #'/home/alex/hopulent/templates/abouts/',
+    '/home/didier/hopulent/templates/',
+    '/home/didier/hopulent/templates/account/',
+    '/home/didier/hopulent/templates/browse/',
+    '/home/didier/hopulent/templates/admin/',
+    '/home/didier/hopulent/templates/abouts/',
 
      #Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
      #Always use forward slashes, even on Windows.
