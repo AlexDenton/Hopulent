@@ -52,6 +52,9 @@ MEDIA_ROOT = ''
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = ''
 
+STATIC_URL = '/static/'
+	
+
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
@@ -81,10 +84,6 @@ AUTH_PROFILE_MODULE = 'account.UserProfile'
 
 TEMPLATE_DIRS = (
     '/home/alex/hopulent/templates/',
-    #'/home/alex/hopulent/templates/account/',
-    #'/home/alex/hopulent/templates/browse/',
-    #'/home/alex/hopulent/templates/admin/',
-    #'/home/alex/hopulent/templates/abouts/',
 
      #Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
      #Always use forward slashes, even on Windows.
@@ -97,6 +96,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'index',
     'browse',
     'beer',
     'brewery',
@@ -108,4 +108,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'django.contrib.staticfiles',
 )

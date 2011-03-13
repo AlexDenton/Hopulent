@@ -1,8 +1,8 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.contrib.auth.models import User
 from django import forms
 from django.template import RequestContext
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 class SigninForm(forms.Form):
 	username = forms.CharField(max_length=20)
@@ -25,5 +25,9 @@ def signin(request, username, password):
 		render_to_response('account/signin.html', {'form': form}, context_instance=RequestContext(request))
 			
 	return render_to_response('account/signin.html', {'form': form}, context_instance=RequestContext(request))
+	
+def signout(request):
+	logout(request)
+	return redirect('/')
 	
 	

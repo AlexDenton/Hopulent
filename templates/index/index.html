@@ -1,19 +1,38 @@
-<h1>Hopulent</h1>
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">-->
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}hopulent.css" />
+<title>Hopulent</title>
+</head>
 
-<p><a href=/browse>Browse</a></p>
-<p><a href=/learn>Learn</a></p>
-<p><a href=/aboutus>About us</a></p>
-<p><a href=/contribute>Contribute</a></p>
+<body>
 
-<form action="/search/" method="post">{% csrf_token %}
+<div id="headerdiv">
+<h1>hopulent</h1>
+</div>
+
+<div id="userdiv">
+{% if user.is_authenticated %}
+	<p style="color:#ffffff;">{{ user.username }} | <a href="/signout">Sign out</a></p>
+{% else %}
+	<p><strong>Sign in</strong></p>
+	<form action="/" method="post">{% csrf_token %}
+	{{ signinForm.as_p }}
+	<input type="submit" value="Submit" />
+	</form>
+{% endif %}
+</div>
+
+<div id="navbardiv">
+<h2 id="navlinksdiv"><a href="/browse">Browse</a> <a href="/learn">Learn</a> <a href="/aboutus">About us</a> <a href="/contribute">Contribute</a></h2>
+</div>
+
+<form id="search" action="/search/" method="post">{% csrf_token %}
 {{ searchForm.as_p }}
-<input type="submit" value="Search" />
+<input id="searchsubmit" type="submit" value="Search" />
 </form>
 
+{% block content %}{% endblock %}
 
-<p><strong>Sign in</strong></p>
-
-<form action="/" method="post">{% csrf_token %}
-{{ signinForm.as_p }}
-<input type="submit" value="Submit" />
-</form>
+</body>
+</html>
