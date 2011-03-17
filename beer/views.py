@@ -8,6 +8,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Avg
 from django import forms
+from django.template import RequestContext
 
 class ReviewForm(forms.Form):
 	title = forms.CharField(max_length=40)
@@ -35,10 +36,21 @@ def beer(request, beer_id):
 			title = reviewForm.cleaned_data['title']
 			body = reviewForm.cleaned_data['body']	
 			r = Review(review_id=Review.objects.len()+1, user=request.user, beer=beer, title=title, body=body)
-			return render_to_response('beer/beer.html', {'beer': beer, 'brewery': brewery, 'style': style, 'reviews': reviews, 'rating': rating, 'user_review': user_review, 'reviewForm': reviewForm})
+			return render_to_response(
+				'beer/beer.html', 
+				{'beer': beer, 'brewery': brewery, 'style': style, 'reviews': reviews, 'rating': rating, 'user_review': user_review, 'reviewForm': reviewForm},
+				context_instance=RequestContext(request)
+			)
 	
 	else:
 		reviewForm = ReviewForm()
-		return render_to_response('beer/beer.html', {'beer': beer, 'brewery': brewery, 'style': style, 'reviews': reviews, 'rating': rating, 'user_review': user_review, 'reviewForm': reviewForm})
+		return render_to_response(
+			'beer/beer.html', 
+			{'beer': beer, 'brewery': brewery, 'style': style, 'reviews': reviews, 'rating': rating, 'user_review': user_review, 'reviewForm': reviewForm},
+			context_instance=RequestContext(request)
+		)
 		
-	return render_to_response('beer/beer.html', {'beer': beer, 'brewery': brewery, 'style': style, 'reviews': reviews, 'rating': rating, 'user_review': user_review, 'reviewForm': reviewForm})
+	return render_to_response('beer/beer.html', 
+		{'beer': beer, 'brewery': brewery, 'style': style, 'reviews': reviews, 'rating': rating, 'user_review': user_review, 'reviewForm': reviewForm},
+		context_instance=RequestContext(request)
+	)

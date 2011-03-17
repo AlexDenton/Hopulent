@@ -1,3 +1,7 @@
+{% extends "index/index.html" %}
+
+{% block content %}
+
 <h1>{{ beer.name }}</h1>
 
 <p>Rating: {{ rating }}</p>
@@ -30,5 +34,7 @@
 	<p>{{ review.user }}, {{ review.title }} : {{ review.rating }}<br/>
 	 {{ review.body }} </p>
 {% endfor %}
+
+{% endblock %}
 
 

@@ -17,9 +17,13 @@ def search(request):
 			beers = Beer.objects.filter(name__icontains=query)
 			breweries = Brewery.objects.filter(name__icontains=query)
 			styles = Style.objects.filter(style_name__icontains=query)
-			return render_to_response('search/index.html', {'form': form, 'beers': beers, 'breweries': breweries, 'styles': styles}, context_instance=RequestContext(request))
+			return render_to_response('search/results.html', {'form': form, 'beers': beers, 'breweries': breweries, 'styles': styles}, context_instance=RequestContext(request))
 	else:
 		form = SearchForm()
-		return render_to_response('search/index.html', {'form': form}, context_instance=RequestContext(request))
+		return render_to_response(
+			'search/results.html', 
+			{'form': form}, 
+			context_instance=RequestContext(request)
+		)
 	
-	return render_to_response('search/index.html', {'form': form}, context_instance=RequestContext(request))
+	return render_to_response('search/results.html', {'form': form}, context_instance=RequestContext(request))

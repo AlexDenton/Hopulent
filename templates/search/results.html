@@ -1,0 +1,27 @@
+{% extends "index/index.html" %}
+
+{% block content %}
+
+<form action="/search/" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Search" />
+</form>
+
+<p>Beers:</p>
+{% for beer in beers %}
+	<p><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></p>
+{% endfor %}
+
+<p>Breweries:</p>
+{% for brewery in breweries %}
+	<p><a href="/brewery/{{ brewery.id }}">{{ brewery.name }}</a></p>
+{% endfor %}
+
+
+<p>Styles</p>
+{% for style in styles %}
+	<p><a href="/style/{{ style.id }}">{{ style.style_name }}</a></p>
+{% endfor %}
+
+{% endblock %}
+
