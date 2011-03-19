@@ -1,10 +1,14 @@
+{% extends "index/index.html" %}
+
+{% block content %}
+
 <h1>{{ beer.name }}</h1>
+
+<p>Rating: {{ rating }}</p>
 
 <p>Brewery: <a href="/brewery/{{ brewery.id }}">{{ brewery.name }}</a></p>
 
 <p>Style: <a href="/style/{{ style.id }}">{{ style.style_name }}</a></p>
-
-<p>Category: {{ cat.cat_name }}</p>
 
 <p>ABV: {{ beer.abv }}</p>
 
@@ -12,5 +16,25 @@
 
 <p>Description: {{ beer.descript }}</p>
 
-<p>Rating: {{ rating }}</p>
+</br>
+
+<p><strong> My review: </strong></p>
+{% if user_review %}
+	<p>{{ user_review.user }}, {{ user_review.title }}: {{ user_review.rating }}</br>
+	{{ user_review.body }}</p>
+{% else %}
+	<p> You haven't reviewed this beer. Review now!</p>
+	{{ reviewForm.as_p }}
+{% endif %}
+
+</br>
+
+<p><strong>Reviews:</strong></p>
+{% for review in reviews %}
+	<p>{{ review.user }}, {{ review.title }} : {{ review.rating }}<br/>
+	 {{ review.body }} </p>
+{% endfor %}
+
+{% endblock %}
+
 

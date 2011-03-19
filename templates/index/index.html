@@ -1,19 +1,54 @@
-<h1>Hopulent</h1>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
-<p><a href=/browse>Browse</a></p>
-<p><a href=/learn>Learn</a></p>
-<p><a href=/aboutus>About us</a></p>
-<p><a href=/contribute>Contribute</a></p>
+<html>
 
-<form action="/search/" method="post">{% csrf_token %}
-{{ searchForm.as_p }}
-<input type="submit" value="Search" />
-</form>
+	<head>
+		<title>Hopulent</title>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}hopulent.css" />
+	</head>
 
+	<body>
 
-<p><strong>Sign in</strong></p>
+		<div class="main">
+		
+			<div class="header">
+				<img src="{{ STATIC_URL }}hopulent.png" alt="Hopulent" />
+				<div id="search">
+					<form action="/search/" method="post">{% csrf_token %}
+						<input type="text" name="query" />
+						<!--{{ searchForm.query }}-->
+						<!--<input type="submit" value="Search" />-->
+					</form>
+				</div>
+				
+				<div id="user">
+					{% if user.is_authenticated %}
+						<p style="color:#ffffff;">{{ user.username }} | <a href="/signout">Sign out</a></p>
+					{% else %}
+						<p><strong>Sign in</strong></p>
+						<form action="/" method="post">{% csrf_token %}
+						{{ signinForm.as_p }}
+						<input type="submit" value="Submit" />
+						</form>
+					{% endif %}
+				</div>
+			</div>
+			
+			<div class="nav">
+				<ul id="menu">
+					<li class="active"><div><a href="/">Home</a></div></li>
+					<li><div><a href="/browse">Find Beer</a></div></li>
+					<li><div><a href="/learn">Know Beer</a></div></li>
+					<li><div><a href="/aboutus">The Revolution</a></div></li>
+					<li><div><a href="/contribute">Merch</a></div></li>
+				</ul>
+			</div>
+			
+			<div class="content">
+			{% block content %}{% endblock %}
+			</div>
+		</div>
+		
+	</body>
 
-<form action="/" method="post">{% csrf_token %}
-{{ signinForm.as_p }}
-<input type="submit" value="Submit" />
-</form>
+</html>

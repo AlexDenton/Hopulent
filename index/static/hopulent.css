@@ -1,0 +1,113 @@
+body
+{
+	font-family: Arial, sans-serif;
+	margin:10px;
+	padding:0;
+	background-color:#2a2a2a;
+}
+
+.main
+{
+	margin-left:auto;
+	margin-right:auto;
+	/*background-image:url('/static/gradient2.png');
+	background-repeat:repeat-y;*/
+	height:1000px;
+	width:1200px;
+}
+
+.header
+{
+	height:60px;
+	width:1000px;
+	margin:auto;	
+}
+
+.header a:link, .header a:visited
+{
+	text-decoration:none;
+	color:#ffffff;
+}
+
+.header a:hover, .header a:active
+{
+	text-decoration:none;
+	color:#60860d;
+}
+
+#search
+{
+	position:relative;
+	top:20px;
+	float:right;
+}
+
+#user
+{
+	position:relative;
+	right:15px;
+	top:10px;
+	float:right;
+}	
+
+.nav
+{
+	height:45px;
+	width:1030px;
+	margin:auto;
+	background-color:#60860d;
+	border-radius:10px;
+	-moz-border-radius:10px;
+}
+
+.content
+{	
+	background-color:#ffffff;
+	min-height:870px;
+	width:920px;
+	margin:auto;
+	padding:40px;
+	border-bottom-right-radius:10px;
+	-moz-border-radius-bottomright:10px;
+	border-bottom-left-radius:10px;
+	-moz-border-radius-bottomleft:10px
+}
+
+#menu 
+{
+	font-weight: bold;
+	margin: 0 0;
+	padding: 0 0 0 40px;
+	list-style-type: none;
+	font-size: 15px;
+	background: #60860d;
+	height:40px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+			
+#menu li 
+{
+	float:left;
+	margin:0;
+}
+			
+#menu li a
+{
+	text-decoration: none;
+	display: block;
+	padding:0 20px;
+	line-height:40px;
+	color: #ffffff;
+	margin-top:8px;
+}
+				
+#menu li a:hover, #menu li.active a 
+{
+	background-color: #ffffff;
+	color: #60860d;
+	border-top-left-radius:10px;
+	-moz-border-radius-topleft:10px;
+	border-top-right-radius:10px;
+	-moz-border-radius-topright:10px;
+}

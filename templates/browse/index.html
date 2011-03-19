@@ -1,4 +1,6 @@
-<h1><strong><CENTER>BROWSE</CENTER></strong></h1>
+{% extends "index/index.html" %}
+
+{% block content %}
 	<table border="1" cellspacing="0" cellpadding="7"><p>
 	<a href="/browse/styles">STYLE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	<a href="/browse/location">LOCATION</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -16,4 +18,5 @@
 		<td><p>{{ beer.abv }}</p></td>
 		<td><p>{{ beer.ibu }}</p></td></tr>
 	{% endfor %}
+{% endblock %}
 

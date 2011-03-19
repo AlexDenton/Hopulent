@@ -12,6 +12,7 @@ class SigninForm(forms.Form):
 	password = forms.CharField(max_length=20, widget=forms.PasswordInput)
 	
 def main_page(request):
+	user = request.user
 	if request.method == 'POST':
 		signinForm = SigninForm(request.POST)
 		searchForm = SearchForm(request.POST)
@@ -27,6 +28,6 @@ def main_page(request):
 	else:
 		signinForm = SigninForm()
 		searchForm = SearchForm()
-		render_to_response('index/index.html', {'signinForm': signinForm, 'searchForm': searchForm}, context_instance=RequestContext(request))
+		render_to_response('index/index.html', {'signinForm': signinForm, 'searchForm': searchForm, 'user': user}, context_instance=RequestContext(request))
 			
 	return render_to_response('index/index.html', {'signinForm': signinForm, 'searchForm': searchForm}, context_instance=RequestContext(request))
