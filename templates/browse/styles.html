@@ -1,7 +1,22 @@
-<h1><strong><CENTER><a href="/browse/">BROWSE</a></CENTER></strong></h1>
+{% extends "index/index.html" %}
+
+{% block nav %}
+<div class="nav">
+	<ul id="menu">
+		<li><div><a href="/">Home</a></div></li>
+		<li class="active"><div><a href="/browse">Find Beer</a></div></li>
+		<li><div><a href="/learn">Know Beer</a></div></li>
+		<li><div><a href="/aboutus">The Revolution</a></div></li>
+		<li><div><a href="/contribute">Merch</a></div></li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block content %}
+
 	<table border="1" cellspacing="0" cellpadding="7"><p>
 	STYLE&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/browse/location">LOCATION</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/location">STATE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	<a href="/browse/breweries">BREWERY</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	<a href="/browse/beers">ALL</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
 	<tr><th>Choose A Style:</th></tr>
@@ -11,3 +26,5 @@
 	{% endfor %}
 	</td>
 	</tr>
+
+{% endblock %}

@@ -1,7 +1,7 @@
 body
 {
 	font-family: Arial, sans-serif;
-	margin:10px;
+	margin:10px 0px 20px 0px;
 	padding:0;
 	background-color:#2a2a2a;
 }
@@ -12,7 +12,7 @@ body
 	margin-right:auto;
 	/*background-image:url('/static/gradient2.png');
 	background-repeat:repeat-y;*/
-	height:1000px;
+	min-height:1000px;
 	width:1200px;
 }
 
@@ -71,6 +71,28 @@ body
 	-moz-border-radius-bottomright:10px;
 	border-bottom-left-radius:10px;
 	-moz-border-radius-bottomleft:10px
+}
+
+#newsfeed
+{
+	width:420px;
+	display:inline-block;
+	float:left;
+}
+
+#article
+{
+	display:inline-block;
+	width:460px;
+	border-left-style:solid;
+	border-color:#C0C0C0;
+	border-width:1px;
+	padding-left:30px;
+}
+
+.content h2
+{
+	color:#60860d;
 }
 
 #menu 
