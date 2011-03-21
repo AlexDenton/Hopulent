@@ -66,7 +66,7 @@ def categories(request):
 	)
 
 def location(request):
-	list_of_locations = Brewery.objects.filter(country='United States').distinct('brewery')
+	list_of_locations = Brewery.objects.values_list('state', flat=True).distinct().filter(country='United States').order_by('state')
 	return render_to_response(
 		'browse/location.html', 
 		{'list_of_locations':list_of_locations},
@@ -74,9 +74,6 @@ def location(request):
 	)
 
 def locationdetail(request, state):
-	brewery = get_object_or_404(Brewery, pk=state)
-	list_of_breweries = Brewery.objects.filter(state=brewery.state)
-	for brewery in list_of_breweries:
-		list_of_beers = Beer.objects.filter(brewery_id=brewery.id)
+	list_of_beers = Beer.objects.filter(beer.brewery.state, pk=state)
 	return render_to_response('browse/locationdetail.html', 
 				{'list_of_beers': list_of_beers},	 				 context_instance=RequestContext(request))

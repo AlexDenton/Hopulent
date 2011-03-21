@@ -21,7 +21,7 @@
 	<tr><th ALIGN=left>Choose A Location:</th></tr>
 	<td>
 	{% for brewery in list_of_locations %}
-		<p><a href="/browse/location/{{ brewery.state }}">{{ brewery.state }}</p>
+		<p><a href="/browse/location/{{ brewery.state }}">{{ brewery }}</p>
 	{% endfor %}
 	</td>
 	</tr>
