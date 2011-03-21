@@ -13,7 +13,6 @@
 {% endblock %}
 
 {% block content %}
-	<td><p><a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery_id }}</a></p></td>
 	<table BORDER="1" RULES=NONE FRAME=BOX STYLE="border-spacing: 10px 1px;"><p>
 	<a href="/browse/styles">Style</a>&nbsp&nbsp
 	<a href="/browse/location">Location</a>&nbsp&nbsp
@@ -26,7 +25,7 @@
 	<th ALIGN=left>IBU</th></tr>
 	{% for beer in list_of_latest_beers %}
     		<tr><td><p><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></p></td>
-		<td><p><a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery_id }}</a></p></td>
+		<td><p><a href="/brewery/{{ beer.brewery.id }}">{{ beer.brewery }}</a></p></td>
 		<td><p>A Rating</p></td>
 		<td><p>{{ beer.abv }}</p></td>
 		<td><p>{{ beer.ibu }}</p></td></tr>
