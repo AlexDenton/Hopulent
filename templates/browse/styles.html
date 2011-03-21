@@ -1,13 +1,16 @@
-<h1><strong><CENTER><a href="/browse/">BROWSE</a></CENTER></strong></h1>
-	<table border="1" cellspacing="0" cellpadding="7"><p>
-	STYLE&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/browse/location">LOCATION</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/browse/breweries">BREWERY</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/browse/beers">ALL</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
-	<tr><th>Choose A Style:</th></tr>
+{% extends "index/index.html" %}
+
+{% block content %}
+	<table BORDER="1" RULES=NONE FRAME=BOX STYLE="border-spacing: 10px 1px;"><p>
+	Style&nbsp&nbsp
+	<a href="/browse/location">Location</a>&nbsp&nbsp
+	<a href="/browse/breweries">Brewery</a>&nbsp&nbsp
+	<a href="/browse/beers">All</a>&nbsp&nbsp</p>
+	<tr><th ALIGN=left>Choose A Style:</th></tr>
 	<td>
 	{% for style in list_of_styles %}
 		<p><a href="/browse/styles/{{ style.id }}">{{ style.style_name }}</p>
 	{% endfor %}
 	</td>
 	</tr>
+{% endblock %}

@@ -1,14 +1,16 @@
-<h1><strong><CENTER><a href="/browse/">BROWSE</a></CENTER></strong></h1>
-	<table border="1" cellspacing="0" cellpadding="7"><p>
-	<a href="/browse/styles">STYLE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/browse/location">LOCATION</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/browse/breweries">BREWERY</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	ALL&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
-	<tr><th>Beer Name:</th>
-	<th>Brewery Name:</th>
-	<th>Rating:</th>
-	<th>ABV:</th>
-	<th>IBU:</th></tr>
+{% extends "index/index.html" %}
+
+{% block content %}
+	<table BORDER="1" RULES=NONE FRAME=BOX STYLE="border-spacing: 10px 1px;"><p>
+	<a href="/browse/styles">Style</a>&nbsp&nbsp
+	<a href="/browse/location">Location</a>&nbsp&nbsp
+	<a href="/browse/breweries">Brewery</a>&nbsp&nbsp
+	All&nbsp&nbsp</p>
+	<tr><th ALIGN=left>Beer Name</th>
+	<th ALIGN=left>Brewery Name</th>
+	<th ALIGN=left>Rating</th>
+	<th ALIGN=left>ABV</th>
+	<th ALIGN=left>IBU</th></tr>
 	{% for beer in list_of_beers %}
 		<tr><td><p><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></p></td>
 		<td><p><a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery_id }}</a></p></td>
@@ -16,4 +18,4 @@
 		<td><p>{{ beer.abv }}</p></td>
 		<td><p>{{ beer.ibu }}</p></td></tr>
 	{% endfor %}
-
+{% endblock %}
