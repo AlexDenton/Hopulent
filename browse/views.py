@@ -41,7 +41,7 @@ def brewerydetail(request, brewery_id):
     	)
 
 def styles(request):
-    list_of_styles = Style.objects.distinct()
+    list_of_styles = Style.objects.distinct().order_by('style_name')
     return render_to_response(
     		'browse/styles.html', 
     		{'list_of_styles': list_of_styles},
@@ -66,7 +66,7 @@ def categories(request):
 	)
 
 def location(request):
-	list_of_locations = Brewery.objects.distinct()
+	list_of_locations = Brewery.objects.filter(country='United States').distinct('state')
 	return render_to_response(
 		'browse/location.html', 
 		{'list_of_locations':list_of_locations},

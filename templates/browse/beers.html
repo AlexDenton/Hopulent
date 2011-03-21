@@ -15,16 +15,18 @@
 
 {% block content %}
 	<p>
-	<a href="/browse/styles">STYLE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/browse/location">STATE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/browse/breweries">BREWERY</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	ALL&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<div style="display:inline-block"><a href="/browse/styles">STYLE</a>&nbsp&nbsp</div>
+	<div style="display:inline-block"><a href="/browse/location">STATE</a>&nbsp&nbsp</div>
+	<div style="display:inline-block"><a href="/browse/breweries">BREWERY</a>&nbsp&nbsp</div>
+	<div style="display:inline-block">ALL&nbsp&nbsp</div>
 	</p>
-	<p>Beer Name:</p>
-	<p>Brewery:</p>
-	<p>Rating:</p>
-	<p>ABV:</p>
-	<p>IBU:</p>
+	<p>
+	<div style="display:inline-block">Beer Name:</div>
+	<div style="display:inline-block">Brewery:</div>
+	<div style="display:inline-block">Rating:</div>
+	<div style="display:inline-block">ABV:</div>
+	<div style="display:inline-block">IBU:</div>
+	</p>
 	{% for beer in list_of_beers %}
 		<div>
 			<div style="display:inline-block"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></div>
