@@ -1,21 +1,39 @@
 {% extends "index/index.html" %}
 
-{% block content %}
-	<table BORDER="1" RULES=NONE FRAME=BOX STYLE="border-spacing: 10px 1px;"><p>
-	<a href="/browse/styles">Style</a>&nbsp&nbsp
-	<a href="/browse/location">Location</a>&nbsp&nbsp
-	<a href="/browse/breweries">Brewery</a>&nbsp&nbsp
-	All&nbsp&nbsp</p>
-	<tr><th ALIGN=left>Beer Name</th>
-	<th ALIGN=left>Brewery Name</th>
-	<th ALIGN=left>Rating</th>
-	<th ALIGN=left>ABV</th>
-	<th ALIGN=left>IBU</th></tr>
-	{% for beer in list_of_beers %}
-		<tr><td><p><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></p></td>
-		<td><p><a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery_id }}</a></p></td>
-		<td><p>A Rating</p></td>
-		<td><p>{{ beer.abv }}</p></td>
-		<td><p>{{ beer.ibu }}</p></td></tr>
-	{% endfor %}
+
+{% block nav %}
+<div class="nav">
+	<ul id="menu">
+		<li><div><a href="/">Home</a></div></li>
+		<li class="active"><div><a href="/browse">Find Beer</a></div></li>
+		<li><div><a href="/learn">Know Beer</a></div></li>
+		<li><div><a href="/aboutus">The Revolution</a></div></li>
+		<li><div><a href="/contribute">Merch</a></div></li>
+	</ul>
+</div>
 {% endblock %}
+
+{% block content %}
+	<p>
+	<a href="/browse/styles">STYLE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/location">STATE</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="/browse/breweries">BREWERY</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	ALL&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	</p>
+	<p>Beer Name:</p>
+	<p>Brewery:</p>
+	<p>Rating:</p>
+	<p>ABV:</p>
+	<p>IBU:</p>
+	{% for beer in list_of_beers %}
+		<div>
+			<div style="display:inline-block"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></div>
+			<div style="display:inline-block"><a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery.name }}y</a></div>
+			<div style="display:inline-block"><p>A Rating</p></div>
+			<div style="display:inline-block"><p>{{ beer.abv }}</p></div>
+			<div style="display:inline-block"><p>{{ beer.ibu }}</p></div>
+		</div>
+	{% endfor %}
+	
+{% endblock %}
+

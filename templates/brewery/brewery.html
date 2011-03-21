@@ -1,3 +1,19 @@
+{% extends "index/index.html" %}
+
+{% block nav %}
+<div class="nav">
+	<ul id="menu">
+		<li><div><a href="/">Home</a></div></li>
+		<li class="active"><div><a href="/browse">Find Beer</a></div></li>
+		<li><div><a href="/learn">Know Beer</a></div></li>
+		<li><div><a href="/aboutus">The Revolution</a></div></li>
+		<li><div><a href="/contribute">Merch</a></div></li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block content %}
+
 <h1>{{ brewery.name }}</h1>
 
 <p>Address: {{ brewery.address1 }}</p>
@@ -23,3 +39,5 @@
 {% for beer in list_of_beers %}
 	<li><a href="/beer/{{ beer.id }}">{{beer.name}}</a></li>
 {% endfor %}
+
+{% endblock %}

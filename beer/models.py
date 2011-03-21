@@ -1,9 +1,11 @@
 from django.db import models
 from brewery.models import Brewery
 
+from brewery.models import Brewery
+
 class Beer(models.Model):
     id = models.IntegerField(primary_key=True)
-    brewery_id = models.IntegerField()
+    brewery = models.ForeignKey(Brewery)
     name = models.CharField(max_length=765)
     cat_id = models.IntegerField()
     style_id = models.IntegerField()

@@ -12,12 +12,10 @@
 		<div class="main">
 		
 			<div class="header">
-				<img src="{{ STATIC_URL }}hopulent.png" alt="Hopulent" />
+				<a href="/"><img src="{{ STATIC_URL }}hopulent.png" alt="Hopulent" /></a>
 				<div id="search">
 					<form action="/search/" method="post">{% csrf_token %}
 						<input type="text" name="query" />
-						<!--{{ searchForm.query }}-->
-						<!--<input type="submit" value="Search" />-->
 					</form>
 				</div>
 				
@@ -34,6 +32,7 @@
 				</div>
 			</div>
 			
+			{% block nav %}
 			<div class="nav">
 				<ul id="menu">
 					<li class="active"><div><a href="/">Home</a></div></li>
@@ -43,10 +42,60 @@
 					<li><div><a href="/contribute">Merch</a></div></li>
 				</ul>
 			</div>
+			{% endblock %}
 			
 			<div class="content">
-			{% block content %}{% endblock %}
+			{% block content %}
+			<div>
+			<div id="newsfeed">
+				<h2>What's hoppin'?</h2>
 			</div>
+			<div id="article">
+				<h2>A Call to Arms</h2>
+				<p>
+					Friends, I call upon you today to rise up in arms against those who claim America needs a King, 
+					those who seek to cheapen and undermine that which we love, those who believe that one size fits 
+					all and ignore your personal opinions in an attempt to make you believe that being unique is uncouth. 
+					
+					<br /><br />
+
+					Make no mistake about it, this will be WAR and it will NOT be a fair fight.  They have strength in their 
+					numbers and size, but we have heart and God on our side.  We must band together in small militias, 
+					and at every turn in the road we will strike and they will lose a few men.  This is not a war to be fought 
+					with guns, but rather with your wallets.  Every purchase you make will be like cannon fire.  With every 
+					truly craft six pack you purchase the enemy will feel the blow.  They will scramble to make you believe 
+					that they have adopted the standards that we demand and a quality high enough for us to accept but 
+					we must send them back to the foreigners to whom they sold their souls.  And friends they will try and 
+					may succeed at breaking those whose names we bring to the forefront.  But I beg of you, friends, do 
+					not fall for their trickery and never forget what they have done, polluting our bars and groceries with a 
+					fizzy yellow piss poor uninspiring excuse for BEER.  And I promise you that if we continue to fight they 
+					will eventually topple, and we will stand united in victory.
+					
+					<br /><br />
+
+					We know that beer is more than a drink; it is a liquid ode to our past, our present, and our future.  It 
+					holds within its amber body our deepest secrets and most honest feelings.  It is an ever evolving art form 
+					that has grown with the human race since the dawn of civilization.  It is a nutritious liquid expression of 
+					who we are as individuals.  The beer you choose to enjoy tells the world something about you.  Don’t let 
+					that something be that you are just like everyone else, just another face in the crowd, just another 
+					nobody who care cares not for quality and will accept the cheapest of products in order to fit in with the 
+					masses.  Just like you and I every beer has a unique history all its own, a story to tell, and 
+					characteristics that make it one of a kind.  However there are some who believe that you can be 
+					accurately depicted by the lowest quality ingredients mixed together by people who answer to 
+					shareholders halfway across the Earth.  And it is to them that I shake my fist in anger and vow to break 
+					their mass produced soulless “beer” (if you can even call it that).  We cherish the Sistine Chapel because 
+					it was not mass produced; let us do the same with our beer.
+					
+					<br /><br />
+
+					Drink local, help your neighbors, and don’t give a penny of your hard earned money to the enemy.
+					
+					<br /><br />
+
+					-B. Casey    
+				</p>
+			</div>
+			{% endblock %}
 		</div>
 		
 	</body>
