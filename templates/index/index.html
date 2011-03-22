@@ -4,7 +4,7 @@
 
 	<head>
 		<title>Hopulent</title>
-		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}hopulent.css" />
+		<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}hopulent.css" />
 	</head>
 
 	<body>
@@ -12,7 +12,7 @@
 		<div class="main">
 		
 			<div class="header">
-				<a href="/"><img src="{{ STATIC_URL }}hopulent.png" alt="Hopulent" /></a>
+				<a href="/"><img src="{{ MEDIA_URL }}hopulent.png" alt="Hopulent" /></a>
 				<div id="search">
 					<form action="/search/" method="post">{% csrf_token %}
 						<input type="text" name="query" />
