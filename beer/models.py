@@ -1,14 +1,13 @@
 from django.db import models
 from brewery.models import Brewery
-
-from brewery.models import Brewery
-
+from category.models import Category
+from style.models import Style
 class Beer(models.Model):
     id = models.IntegerField(primary_key=True)
     brewery = models.ForeignKey(Brewery)
     name = models.CharField(max_length=765)
-    cat_id = models.IntegerField()
-    style_id = models.IntegerField()
+    cat = models.ForeignKey(Category)
+    style = models.ForeignKey(Style)
     abv = models.FloatField()
     ibu = models.FloatField()
     srm = models.FloatField()

@@ -30,7 +30,7 @@
 	{% for beer in list_of_beers %}
 		<div>
 			<div style="display:inline-block"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></div>
-			<div style="display:inline-block"><a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery.name }}y</a></div>
+			<div style="display:inline-block"><a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery.name }}</a></div>
 			<div style="display:inline-block"><p>A Rating</p></div>
 			<div style="display:inline-block"><p>{{ beer.abv }}</p></div>
 			<div style="display:inline-block"><p>{{ beer.ibu }}</p></div>

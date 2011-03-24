@@ -16,10 +16,9 @@ def index(request):
     
 def beers(request):
     list_of_beers = Beer.objects.all().order_by('name')
-    list_of_breweries = Brewery.objects.all().order_by('name')
     return render_to_response(
     		'browse/beers.html', 
-    		{'list_of_beers': list_of_beers, 'list_of_breweries': list_of_breweries},
+    		{'list_of_beers': list_of_beers},
     		context_instance=RequestContext(request)
     )
     

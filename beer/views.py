@@ -20,10 +20,13 @@ def beer(request, beer_id):
 	reviews = Review.objects.filter(beer=beer.id)
 	rating = reviews.aggregate(Avg('rating'))
 	brewery = Brewery.objects.get(pk=beer.brewery_id)
-	
+
+	# Maybe uneccesary	
 	if request.user.is_authenticated():
-		user_review = Review.objects.get(user = request.user)
-	else: user_review = None
+		try:
+			user_review = reviews.get(user = request.user)
+		except ObjectDoesNotExist:
+			user_review = None
 	
 	try:
 		style = Style.objects.get(pk=beer.style_id)	
