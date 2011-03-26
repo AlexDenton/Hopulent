@@ -13,22 +13,27 @@
 {% endblock %}
 
 {% block content %}
-	<table BORDER="1" RULES=NONE FRAME=BOX STYLE="border-spacing: 10px 1px;"><p>
-	<a href="/browse/styles">Style</a>&nbsp&nbsp
-	<a href="/browse/location">Location</a>&nbsp&nbsp
-	<a href="/browse/breweries">Brewery</a>&nbsp&nbsp
-	<a href="/browse/beers">All</a>&nbsp&nbsp</p>
-	<tr><th ALIGN=left>Latest beers!</th>
-	<th ALIGN=left>Brewery Name</th>
-	<th ALIGN=left>Rating</th>
-	<th ALIGN=left>ABV</th>
-	<th ALIGN=left>IBU</th></tr>
-	{% for beer in list_of_latest_beers %}
-    		<tr><td><p><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></p></td>
-		<td><p><a href="/brewery/{{ beer.brewery.id }}">{{ beer.brewery }}</a></p></td>
-		<td><p>A Rating</p></td>
-		<td><p>{{ beer.abv }}</p></td>
-		<td><p>{{ beer.ibu }}</p></td></tr>
-	{% endfor %}
+<div class="navtable">
+	<ul id="menu">
+		<li><div><a href="/browse/styles">Style</a></div></li>
+		<li><div><a href="/browse/location">Location</a></div></li>
+		<li><div><a href="/browse/breweries">Brewery</a></div></li>
+		<li><div><a href="/browse/beers">All</a></div></li>
+	</ul>
+</div>
+	<p><div class="atable">
+		Latest beers!
+		Brewery Name
+		Rating
+		ABV
+		IBU
+	</div></p>
+		{% for beer in list_of_latest_beers %}
+    			<p><div class="atable"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a>
+			<a href="/brewery/{{ beer.brewery.id }}">{{ beer.brewery }}</a>
+			A Rating
+			{{ beer.abv }}
+			{{ beer.ibu }}</div></p>
+		{% endfor %}
 {% endblock %}
 

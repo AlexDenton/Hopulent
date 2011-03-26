@@ -15,7 +15,7 @@ def index(request):
     )
     
 def beers(request):
-    list_of_beers = Beer.objects.all().order_by('name')
+    list_of_beers = Beer.objects.filter(brewery.country='United States').order_by('name')
     return render_to_response(
     		'browse/beers.html', 
     		{'list_of_beers': list_of_beers},
@@ -47,9 +47,9 @@ def styles(request):
     		context_instance=RequestContext(request)
     	)
 
-def styledetail(request, style_id):
-	style = get_object_or_404(Style, pk=style_id)
-	list_of_beers = Beer.objects.filter(style_id=style.id)
+def styledetail(request, styleid):
+	chosenstyle = get_object_or_404(Style, pk=styleid)
+	list_of_beers = Beer.objects.filter(style=chosenstyle.style_name)
 	return render_to_response(
 		'browse/styledetail.html', 
 		{'style': style, 'list_of_beers': list_of_beers},
@@ -73,6 +73,9 @@ def location(request):
 	)
 
 def locationdetail(request, state):
-	list_of_beers = Beer.objects.filter(beer.brewery.state, pk=state)
-	return render_to_response('browse/locationdetail.html', 
-				{'list_of_beers': list_of_beers},	 				 context_instance=RequestContext(request))
+	list_of_beers = Beer.objcts.filter(brewery.state=state)
+	return render_to_response(
+		'browse/locationdetail.html',
+		{'list_of_beers':list_of_beers},
+		context_instance=RequestContext(request)
+	)

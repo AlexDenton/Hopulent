@@ -11,15 +11,16 @@
 	</ul>
 </div>
 {% endblock %}
+
 {% block content %}
 
 <h1>{{ beer.name }}</h1>
 
 <p>Rating: {{ rating }}</p>
 
-<p>Brewery: <a href="/brewery/{{ brewery.id }}">{{ brewery.name }}</a></p>
+<p>Brewery: <a href="/brewery/{{ beer.brewery }}">{{ beer.brewery.name }}</a></p>
 
-<p>Style: <a href="/style/{{ style.id }}">{{ style.style_name }}</a></p>
+<p>Style: <a href="/style/{{ beer.style }}">{{ beer.style.style_name }}</a></p>
 
 <p>ABV: {{ beer.abv }}</p>
 
@@ -31,18 +32,21 @@
 
 <p><strong> My review: </strong></p>
 {% if user_review %}
-	<p>{{ user_review.user }}, {{ user_review.title }}: {{ user_review.rating }}</br>
+	<p>{{ user_review.user }}: {{ user_review.rating }}</br>
 	{{ user_review.body }}</p>
 {% else %}
 	<p> You haven't reviewed this beer. Review now!</p>
+	<form action="/beer/{{ beer.id }}" method="post">
 	{{ reviewForm.as_p }}
+	<input type="submit" value="Submit" />
+	</form>
 {% endif %}
 
 </br>
 
 <p><strong>Reviews:</strong></p>
 {% for review in reviews %}
-	<p>{{ review.user }}, {{ review.title }} : {{ review.rating }}<br/>
+	<p>{{ review.user }}: {{ review.rating }}<br/>
 	 {{ review.body }} </p>
 {% endfor %}
 

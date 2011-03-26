@@ -27,15 +27,16 @@
 	<div style="display:inline-block">ABV:</div>
 	<div style="display:inline-block">IBU:</div>
 	</p>
+	<div style="border:1px solid black">
 	{% for beer in list_of_beers %}
 		<div>
-			<div style="display:inline-block"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></div>
-			<div style="display:inline-block"><a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery.name }}</a></div>
-			<div style="display:inline-block"><p>A Rating</p></div>
-			<div style="display:inline-block"><p>{{ beer.abv }}</p></div>
-			<div style="display:inline-block"><p>{{ beer.ibu }}</p></div>
+			<p><div style="display:inline-block"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a>
+			<a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery.name }}</a>
+			A Rating
+			{{ beer.abv }}
+			{{ beer.ibu }}</p></div>
 		</div>
 	{% endfor %}
-	
+	</div>
 {% endblock %}
 
