@@ -13,9 +13,10 @@
 		
 			<div class="header">
 				<a href="/"><img src="{{ MEDIA_URL }}hopulent.png" alt="Hopulent" /></a>
-				<div id="search">
+				<div id="searchwrapper">
 					<form action="/search/" method="post">{% csrf_token %}
-						<input type="text" name="query" />
+						<input type="text" class="searchbox" name="query" />
+						<input type="image" src="{{ MEDIA_URL }}blank_submit.png" class="searbox_submit" />
 					</form>
 				</div>
 				
