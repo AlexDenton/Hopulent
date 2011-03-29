@@ -1,10 +1,9 @@
-from beer.models import Beer 
-from brewery.models import Brewery
-from category.models import Category
-from style.models import Style
-
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
+
+from beer.models import Beer
+from style.models import Style
+from brewery.models import Brewery
 
 def index(request):
     list_of_latest_beers = Beer.objects.all().order_by('last_mod')[:3]
@@ -15,7 +14,7 @@ def index(request):
     )
     
 def beers(request):
-    list_of_beers = Beer.objects.filter(brewery.country='United States').order_by('name')
+    list_of_beers = Beer.objects.all().order_by('name')
     return render_to_response(
     		'browse/beers.html', 
     		{'list_of_beers': list_of_beers},
@@ -47,20 +46,12 @@ def styles(request):
     		context_instance=RequestContext(request)
     	)
 
-def styledetail(request, styleid):
+def stylesdetail(request, styleid):
 	chosenstyle = get_object_or_404(Style, pk=styleid)
-	list_of_beers = Beer.objects.filter(style=chosenstyle.style_name)
+	list_of_beers = Beer.objects.filter(style__id=chosenstyle.id)
 	return render_to_response(
-		'browse/styledetail.html', 
-		{'style': style, 'list_of_beers': list_of_beers},
-		context_instance=RequestContext(request)
-	)
-
-def categories(request):
-	list_of_categories = Category.objects.all().order_by('cat_name')
-	return render_to_response(
-		'browse/categories.html', 
-		{'list_of_categories':list_of_categories},
+		'browse/styledetail.html',
+		{'list_of_beers': list_of_beers},
 		context_instance=RequestContext(request)
 	)
 
@@ -73,7 +64,7 @@ def location(request):
 	)
 
 def locationdetail(request, state):
-	list_of_beers = Beer.objcts.filter(brewery.state=state)
+	list_of_beers = Beer.objects.filter(brewery__state=state)
 	return render_to_response(
 		'browse/locationdetail.html',
 		{'list_of_beers':list_of_beers},
