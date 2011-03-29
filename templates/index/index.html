@@ -23,7 +23,7 @@
 					{% if user.is_authenticated %}
 						<p style="color:#ffffff;">{{ user.username }} | <a href="/signout">Sign out</a></p>
 					{% else %}
-						<p><strong>Sign in</strong></p>
+						<a href="/signup">Sign Up</a>       <strong>Sign in</strong>    
 						<form action="/" method="post">{% csrf_token %}
 						{{ signinForm.as_p }}
 						<input type="submit" value="Submit" />
