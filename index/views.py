@@ -10,7 +10,7 @@ class SearchForm(forms.Form):
 class SigninForm(forms.Form):
 	username = forms.CharField(max_length=20)
 	password = forms.CharField(max_length=20, widget=forms.PasswordInput)
-	
+
 def main_page(request):
 	user = request.user
 	if request.method == 'POST':

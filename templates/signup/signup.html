@@ -18,21 +18,14 @@
 
 
 <form action="/signup/" method="post">{% csrf_token %}
-	<pre>	
-	User name: <input type="text" name="username" maxlength="30"/> 
-	
-	   E-mail: <input type="text" name="email"/> 
-	 
-	 Password: <input type="password" name="password"/>
-	
-       Confirm PW: <input type="password" name="confirm" />
-
-	   Gender: <input type="radio" name="gender" value="male"/> Male <input type="radio" name="gender" value="female"/> Female       
-
-     
-	<input type="submit" value="Create" /> 
-	</pre>
+{{ signupForm.as_p }}	
+	<input type="submit" value="Create" />
 </form>
 
 
+<<<<<<< HEAD
 {% endblock %}
+=======
+
+{% endblock %}
+>>>>>>> 729219c5b68327a4908a2d62fd39e1d65b0829fd
