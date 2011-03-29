@@ -104,6 +104,7 @@ INSTALLED_APPS = (
     'style',
     'brewerygeocode',
     'review',
+    'signup',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
