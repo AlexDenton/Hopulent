@@ -12,7 +12,7 @@ class SignupForm(form.Form):
         gender = forms.ChoiceField(widget=forms.RadioSelect(choices=(('male','MALE'),('no','NO'))), required=True) )
         
         
-#def signup(request):
+def signup(request):
 #        user = request.user
  #       if request.method == 'POST':
   #              signupForm = SignupForm(request.POST)
@@ -25,4 +25,4 @@ class SignupForm(form.Form):
         #else:           
          #       return render_to_response('signup/signup.html',{'signupForm':signupForm}, context_instance=RequestContext(request))                                
 
-        #return render_to_response('signup/signup.html',{'signupForm':signupForm}, context_instance=RequestContext(request))
+        return render_to_response('signup/signup.html',{'signupForm':signupForm}, context_instance=RequestContext(request))
