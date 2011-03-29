@@ -14,29 +14,25 @@
 {% endblock %}
 
 {% block content %}
-	<p>
-	<div style="display:inline-block"><a href="/browse/styles">STYLE</a>&nbsp&nbsp</div>
-	<div style="display:inline-block"><a href="/browse/location">STATE</a>&nbsp&nbsp</div>
-	<div style="display:inline-block"><a href="/browse/breweries">BREWERY</a>&nbsp&nbsp</div>
-	<div style="display:inline-block">ALL&nbsp&nbsp</div>
-	</p>
-	<p>
-	<div style="display:inline-block">Beer Name:</div>
-	<div style="display:inline-block">Brewery:</div>
-	<div style="display:inline-block">Rating:</div>
-	<div style="display:inline-block">ABV:</div>
-	<div style="display:inline-block">IBU:</div>
-	</p>
-	<div style="border:1px solid black">
+<div class="navtable">
+	<ul id="menu">
+		<li><div><a href="/browse/styles">STYLE</a></div></li>
+		<li><div><a href="/browse/location">STATE</a></li></div>
+		<li><div><a href="/browse/breweries">BREWERY</a></li></div>
+		<li class="active"><div><a href="/browse/beers">ALL</a></div>
+	</ul>
+</div>
+	<p><div class="atableheading" style="width:375px">Beer Name:</div>
+	<div class="atableheading" style="width:400px">Brewery:</div>
+	<div class="atableheading">Rating:
+	ABV:
+	IBU:</div>
 	{% for beer in list_of_beers %}
-		<div>
-			<p><div style="display:inline-block"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a>
-			<a href="/brewery/{{ beer.brewery_id }}">{{ beer.brewery.name }}</a>
-			A Rating
-			{{ beer.abv }}
-			{{ beer.ibu }}</p></div>
-		</div>
+		<p><div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}" style="text-decoration:none"><font color="#ffffff">{{ beer.name }}</font></a></div>
+		<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery_id }}" style="text-decoration:none"><font color="#ffffff"{{ beer.brewery.name }}</font></a></div>
+		<div class="atable">A Rating
+		{{ beer.abv }}
+		{{ beer.ibu }}</div><p>
 	{% endfor %}
-	</div>
 {% endblock %}
 

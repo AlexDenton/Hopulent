@@ -13,21 +13,25 @@
 {% endblock %}
 
 {% block content %}
-	<table BORDER="1" RULES=NONE FRAME=BOX STYLE="border-spacing: 10px 1px;"><p>
-	<a href="/browse/styles">Style</a>&nbsp&nbsp
-	<a href="/browse/location">Location</a>&nbsp&nbsp
-	<a href="/browse/breweries">Brewery</a>&nbsp&nbsp
-	<a href="/browse/beers">All</a>&nbsp&nbsp</p>
-	<tr><th ALIGN=left>Beer Name</th>
-	<th ALIGN=left>Brewery Name</th>
-	<th ALIGN=left>Rating</th>
-	<th ALIGN=left>ABV</th>
-	<th ALIGN=left>IBU</th></tr>
+<div class="navtable">
+	<ul id="menu">
+		<li><div><a href="/browse/styles">Style</a></div></li>
+		<li><div><a href="/browse/location">Location</a></div></li>
+		<li class="active"><div><a href="/browse/breweries">Brewery</a></div></li>
+		<li><div><a href="/browse/beers">All</a></div></li>
+	</ul>
+</div>
+	<p><div class="atableheading" style="width:375px">Beer Name</div>
+	<div class="atableheading" style="width:400px">Brewery Name</div>
+	<div class="atableheading">Rating
+	ABV
+	IBU
+	</div></p>
 	{% for beer in list_of_beers %}
-		<tr><td><p><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></p></td>
-		<td><p><a href="/brewery/{{ beer.brewery.id }}">{{ beer.brewery }}</a></p></td>
-		<td><p>A Rating</p></td>
-		<td><p>{{ beer.abv }}</p></td>
-		<td><p>{{ beer.ibu }}</p></td></tr>
+		<p><div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}" style="text-decoration:none"><font color="#ffffff">{{ beer.name }}</font></a></div>
+		<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery.id }}" style="text-decoration:none"><font color="#ffffff">{{ beer.brewery }}</font></a></div>
+		<div class="atable">A Rating
+		{{ beer.abv }}
+		{{ beer.ibu }}</div></p>
 	{% endfor %}
 {% endblock %}

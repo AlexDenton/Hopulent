@@ -14,18 +14,16 @@
 {% endblock %}
 
 {% block content %}
-
-	<table BORDER="1" RULES=NONE FRAME=BOX STYLE="border-spacing: 10px 1px;"><p>
-	<a href="/browse/styles">Style</a>&nbsp&nbsp
-	<a href="/browse/location">Location</a>&nbsp&nbsp
-	Brewery&nbsp&nbsp
-	<a href="/browse/beers">All</a>&nbsp&nbsp</p>
-	<tr><th ALIGN=left>Choose A Brewery:</th></tr>
-	<td>
+<div class="navtable">
+	<ul id="menu">
+		<li><a href="/browse/styles">Style</a></li>
+		<li><a href="/browse/location">Location</a></li>
+		<li class="active"><a href="/browse/brewery">Brewery&nbsp&nbsp</a></li>
+		<li><a href="/browse/beers">All</a></li>
+	</ul>
+</div>
 	{% for brewery in list_of_breweries %}
-		<p><a href="/browse/breweries/{{ brewery.id }}">{{ brewery.name }}</p>
+		<p><div class="atable" style="width:500px"><a href="/browse/breweries/{{ brewery.id }}" style="text-decoration:none"><b><font color="#ffffff">{{ brewery.name }}</font></b></a></div></p>
 	{% endfor %}
-	</td>
-	</tr>
 
 {% endblock %}

@@ -22,7 +22,7 @@
 	</ul>
 </div>
 	{% for style in list_of_styles %}
-		<p><div class="atable" style="width:300px"><a href="/browse/styles/{{ style.id }}">{{ style.style_name }}</div></p>
+		<p><div class="atable" style="width:400px"><a href="/browse/styles/{{ style.id }}" style="text-decoration:none"><b><font color="#ffffff">{{ style.style_name }}</font></b></a></div></p>
 	{% endfor %}
 
 {% endblock %}
