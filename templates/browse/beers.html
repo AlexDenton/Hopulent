@@ -26,13 +26,13 @@
 	<div class="atableheading" style="width:400px">Brewery:</div>
 	<div class="atableheading">Rating:
 	ABV:
-	IBU:</div>
+	IBU:</div></p>
 	{% for beer in list_of_beers %}
 		<p><div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}" style="text-decoration:none"><font color="#ffffff">{{ beer.name }}</font></a></div>
 		<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery_id }}" style="text-decoration:none"><font color="#ffffff"{{ beer.brewery.name }}</font></a></div>
 		<div class="atable">A Rating
 		{{ beer.abv }}
-		{{ beer.ibu }}</div><p>
+		{{ beer.ibu }}</div></p>
 	{% endfor %}
 {% endblock %}
 
