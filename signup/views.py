@@ -7,11 +7,10 @@ from django.contrib.auth import authenticate, login
 class SignupForm(form.Form):
         username = forms.CharField(max_length=20)
         email = forms.EmailField(max_length=40)
-        password = forms.CharField(max_length=20, widget.forms.PasswordInput)
-        confirm = forms.CharField(max_length=20, widget.forms.PasswordInput)
+        password = forms.CharField(max_length=20, widget=forms.PasswordInput)
+        confirm = forms.CharField(max_length=20, widget=forms.PasswordInput)
         gender = forms.ChoiceField(widget=forms.RadioSelect(choices=(('male','MALE'),('no','NO'))), required=True)
-        
-        
+              
 def signup(request):
 #        user = request.user
  #       if request.method == 'POST':
