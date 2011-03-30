@@ -26,5 +26,3 @@ def signup(request):
 
         return render_to_response('signup/signup.html',{'signupForm':signupForm}, context_instance=RequestContext(request))
 
-def activated(request):
-        return render_to_response('signup/activated.html')
