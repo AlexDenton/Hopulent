@@ -30,7 +30,8 @@ urlpatterns = patterns('',
     (r'^search/$', 'search.views.search'),
     #(r'category/(\d+)/$', 'category.views.category'),
     (r'^style/(\d+)/$', 'style.views.style'),
-    (r'^signup/$', 'signup.views.signup'),                   
+    (r'^signup/signup$', 'signup.views.signup'),
+    (r'^signup/active$', 'signup.views.activated'),
 
     # Example:
     # (r'^Hopulent/', include('Hopulent.foo.urls')),
