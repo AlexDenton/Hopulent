@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth import authenticate, login
 
-class SignupForm(form.Form):
+class SignupForm(forms.Form):
         username = forms.CharField(max_length=20)
         email = forms.EmailField(max_length=40)
         password = forms.CharField(max_length=20, widget=forms.PasswordInput)
