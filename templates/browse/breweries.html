@@ -17,13 +17,13 @@
 <div class="navtable">
 	<ul id="menu">
 		<li><a href="/browse/styles">Style</a></li>
-		<li><a href="/browse/location">Location</a></li>
-		<li class="active"><a href="/browse/brewery">Brewery&nbsp&nbsp</a></li>
+		<li><a href="/browse/location">State</a></li>
+		<li class="active"><a href="/browse/brewery">Brewery</a></li>
 		<li><a href="/browse/beers">All</a></li>
 	</ul>
 </div>
 	{% for brewery in list_of_breweries %}
-		<div class="newatable" style="background-color: {% cycle "#ffffff" "#d5e0bb" %}"><a href="/browse/breweries/{{ brewery.id }}" style="text-decoration:none">{{ brewery.name }}</a></div>
+		<div class="newatable" style="background-color: {% cycle "#ffffff" "#d5e0bb" %}"><a href="/browse/breweries/{{ brewery.id }}" style="text-decoration:none; color:#60860d">{{ brewery.name }}</a></div>
 	{% endfor %}
 
 {% endblock %}

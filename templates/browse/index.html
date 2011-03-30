@@ -16,7 +16,7 @@
 <div class="navtable">
 	<ul id="menu">
 		<li><div><a href="/browse/styles">Style</a></div></li>
-		<li><div><a href="/browse/location">Location</a></div></li>
+		<li><div><a href="/browse/location">State</a></div></li>
 		<li><div><a href="/browse/breweries">Brewery</a></div></li>
 		<li><div><a href="/browse/beers">All</a></div></li>
 	</ul>
@@ -29,8 +29,8 @@
 	<br />
 		{% for beer in list_of_latest_beers %}
     			<div class="newatable" style="background-color: {% cycle "#ffffff" "#d5e0bb" %}" id="selector">
-			<div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}" style="text-decoration:none; color:inherit">{{ beer.name }}</a></div>
-			<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery.id }}" style="text-decoration:none; color:inherit">{{ beer.brewery }}</a></div>
+			<div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}" style="text-decoration:none; color:#60860d">{{ beer.name }}</a></div>
+			<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery.id }}" style="text-decoration:none; color:#60860d">{{ beer.brewery }}</a></div>
 			<div class="atable">10.0
 			{{ beer.abv }}
 			{{ beer.ibu }}</div></div>
