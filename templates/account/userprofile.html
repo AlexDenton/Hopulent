@@ -6,8 +6,11 @@
 		<li><div><a href="/">Home</a></div></li>
 		<li><div><a href="/browse">Find Beer</a></div></li>
 		<li><div><a href="/learn">Know Beer</a></div></li>
-		<li class="active"><div><a href="/aboutus">The Revolution</a></div></li>
+		<li><div><a href="/aboutus">The Revolution</a></div></li>
 		<li><div><a href="/contribute">Merch</a></div></li>
+		{% if user.is_authenticated %}
+			<li class="active"><div><a href="/account">Profile</a></div></li>
+		{% endif %}
 
 	</ul>
 </div>
