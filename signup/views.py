@@ -20,7 +20,7 @@ def signup(request):
                         password = signupForm.cleaned_data['password']
         #                confirm = signupForm.cleaned_data['confirm']
         #                gender = singupForm.cleaned_data['gender']
-                        user = User.objects.create_user('username','email','password')
+                        user = User.objects.create_user(username,email,password)
                         return render_to_response('signup/activated.html',{'signupForm':signupForm}, context_instance=RequestContext(request))                                
                         
         else:
