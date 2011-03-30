@@ -12,9 +12,9 @@ class SignupForm(forms.Form):
         gender = forms.ChoiceField(widget=forms.RadioSelect(choices=(('male','MALE'),('no','NO'))), required=True)
               
 def signup(request):
-#        user = request.user
- #       if request.method == 'POST':
-  #              signupForm = SignupForm(request.POST)
+        user = request.user
+        if request.method == 'POST':
+                signupForm = SignupForm(request.POST)
    #             if signupForm.is_valid():
     #                    username = signupForm.cleaned_data['username']
      #                   email = signupForm.cleaned_data['email']
