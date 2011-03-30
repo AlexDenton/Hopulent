@@ -22,7 +22,7 @@
 	</ul>
 </div>
 	{% for style in list_of_styles %}
-		<div class="newatable" style="background-color:{% cycle "#ffffff" "#d5e0bb" %}"><a href="/browse/styles/{{ style.id }}" style="text-decoration:none">{{ style.style_name }}</a>
+		<div class="newatable" style="background-color:{% cycle "#ffffff" "#d5e0bb" %}" id="selector"><a href="/browse/styles/{{ style.id }}" style="text-decoration:none; color:#60860d">{{ style.style_name }}</a>
 </div>
 	{% endfor %}
 
