@@ -1,1 +1,37 @@
-<p>This is the locaiton detail page</p>
+{% extends "index/index.html" %}
+
+{% block nav %}
+<div class="nav">
+	<ul id="menu">
+		<li><div><a href="/">Home</a></div></li>
+		<li class="active"><div><a href="/browse">Find Beer</a></div></li>
+		<li><div><a href="/learn">Know Beer</a></div></li>
+		<li><div><a href="/aboutus">The Revolution</a></div></li>
+		<li><div><a href="/contribute">Merch</a></div></li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="navtable">
+	<ul id="menu">
+		<li><div><a href="/browse/styles">Style</a></div></li>
+		<li><div><a href="/browse/location">Location</a></div></li>
+		<li class="active"><div><a href="/browse/breweries">Brewery</a></div></li>
+		<li><div><a href="/browse/beers">All</a></div></li>
+	</ul>
+</div>
+	<p><div class="atableheading" style="width:375px">Beer Name</div>
+	<div class="atableheading" style="width:400px">Brewery Name</div>
+	<div class="atableheading">Rating
+	ABV
+	IBU
+	</div></p>
+	{% for beer in list_of_beers %}
+		<p><div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}" style="text-decoration:none"><font color="#ffffff">{{ beer.name }}</font></a></div>
+		<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery.id }}" style="text-decoration:none"><font color="#ffffff">{{ beer.brewery }}</font></a></div>
+		<div class="atable">A Rating
+		{{ beer.abv }}
+		{{ beer.ibu }}</div></p>
+	{% endfor %}
+{% endblock %}
