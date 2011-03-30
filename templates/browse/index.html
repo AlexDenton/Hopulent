@@ -29,11 +29,13 @@
 		IBU</div>
 	</p>
 		{% for beer in list_of_latest_beers %}
-    			<p><div class="newatable" style="background-color: #d5e0bb"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a>
-			<a href="/brewery/{{ beer.brewery.id }}">{{ beer.brewery }}</a>
-			A Rating
+    			<p><div class="newatable" style="background-color: {% cycle "#97af61" "#d5e0bb" %}">
+			<div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></div>
+			<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery.id }}">{{ beer.brewery }}</a></div>
+			<div class="atable">10.0
 			{{ beer.abv }}
-			{{ beer.ibu }}</p>
+			{{ beer.ibu }}</div>
+			</p>
 		{% endfor %}
 {% endblock %}
 
