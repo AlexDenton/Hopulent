@@ -19,6 +19,9 @@
 		<li><div><a href="/browse/location">Location</a></div></li>
 		<li><div><a href="/browse/breweries">Brewery</a></div></li>
 		<li><div><a href="/browse/beers">All</a></div></li>
+		{% if user.is_authenticated %}
+			<li><div><a href="/account">Profile</a></div></li>
+		{% endif %}
 	</ul>
 </div>
 	<p><div class="atable">
