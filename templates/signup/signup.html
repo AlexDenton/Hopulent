@@ -1,4 +1,4 @@
-{% extends "index/index.html" %} 
+{% extends "index/index.html" %}
 
 {% block nav %}
 <div class="nav">
@@ -6,7 +6,7 @@
 		<li><div><a href="/">Home</a></div></li>
 		<li><div><a href="/browse">Find Beer</a></div></li>
 		<li><div><a href="/learn">Know Beer</a></div></li>
-		<li class="active"><div><a href="/aboutus">The Revolution</a></div></li>
+		<li class="active"><div><a href="/">The Revolution</a></div></li>
 		<li><div><a href="/contribute">Merch</a></div></li>
 	</ul>
 </div>
@@ -17,7 +17,7 @@
 <h1>New Account </h1>
 
 <form action="/signup/" method="post">{% csrf_token %}
-{{ signupForm.as_p }}	
+{{ signupForm.as_p }}
 <input type="submit" value="Create" />
 </form>
 
