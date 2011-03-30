@@ -29,5 +29,9 @@ def signin(request, username, password):
 def signout(request):
 	logout(request)
 	return redirect('/')
+
+def user_profile(request, user_id):
+	user = User.objects.get(pk=user_id)
+	return render_to_response('account/userprofile.html', {'user': user})
 	
 	
