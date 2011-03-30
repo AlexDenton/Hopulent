@@ -21,7 +21,8 @@ def signup(request):
       #                  password = signupForm.cleaned_data['password']
        #                 confirm = signupForm.cleaned_data['confirm']
                         
-        #else:           
-         #       return render_to_response('signup/signup.html',{'signupForm':signupForm}, context_instance=RequestContext(request))                                
+        else:
+                signupForm = SignupForm()
+                return render_to_response('signup/signup.html',{'signupForm':signupForm}, context_instance=RequestContext(request))                                
 
         return render_to_response('signup/signup.html',{'signupForm':signupForm}, context_instance=RequestContext(request))
