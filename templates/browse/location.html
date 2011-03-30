@@ -22,6 +22,6 @@
 	</ul>
 </div>
 	{% for brewery in list_of_locations %}
-		<p><div class="atable" style="width:200px"><a href="/browse/location/{{brewery}}" style="text-decoration:none"><b><font color="#ffffff">{{ brewery }}</font></b></a></div></p>
+		<div class="newatable" style="background-color: {% cycle "#ffffff" "#d5e0bb" %}"><a href="/browse/location/{{brewery}}" style="text-decoration:none">{{ brewery }}</a></div>
 	{% endfor %}
 {% endblock %}

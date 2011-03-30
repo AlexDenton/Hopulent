@@ -21,21 +21,19 @@
 		<li><div><a href="/browse/beers">All</a></div></li>
 	</ul>
 </div>
-	<p>
 		<div class="atableheading" style="width:375px">Latest beers!</div>
 		<div class="atableheading" style="width:400px">Brewery Name</div>
 		<div class="atableheading">Rating
 		ABV
 		IBU</div>
-	</p>
+	<br />
 		{% for beer in list_of_latest_beers %}
-    			<p><div class="newatable" style="background-color: {% cycle "#97af61" "#d5e0bb" %}">
-			<div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}">{{ beer.name }}</a></div>
-			<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery.id }}">{{ beer.brewery }}</a></div>
+    			<div class="newatable" style="background-color: {% cycle "#ffffff" "#d5e0bb" %}" id="selector">
+			<div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}" style="text-decoration:none">{{ beer.name }}</a></div>
+			<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery.id }}" style="text-decoration:none">{{ beer.brewery }}</a></div>
 			<div class="atable">10.0
 			{{ beer.abv }}
-			{{ beer.ibu }}</div>
-			</p>
+			{{ beer.ibu }}</div></div>
 		{% endfor %}
 {% endblock %}
 

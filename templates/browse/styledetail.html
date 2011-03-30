@@ -21,16 +21,19 @@
 		<li><div><a href="/browse/beers">All</a></div></li>
 	</ul>
 </div>
-	<p><div class="atableheading" style="width:375px">Beer Name</div>
-	<div class="atableheading" style="width:400px">Brewery Name</div>
-	<div class="atableheading">Rating
-	ABV
-	IBU</div></p>
-	{% for beer in list_of_beers %}
-		<p><div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}" style="text-decoration:none"><font color="#ffffff">{{ beer.name }}</font></a></div>
-		<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery.id }}" style="text-decoration:none"><font color="#ffffff">{{ beer.brewery }}</font></a></div>
-		<div class="atable">A Rating
-		{{ beer.abv }}
-		{{ beer.ibu }}</div></p>
-	{% endfor %}
+		<div class="atableheading" style="width:375px">Beer Name</div>
+		<div class="atableheading" style="width:400px">Brewery Name</div>
+		<div class="atableheading">Rating
+		ABV
+		IBU</div>
+	<br />
+		{% for beer in list_of_beers %}
+    			<div class="newatable" style="background-color: {% cycle "#ffffff" "#d5e0bb" %}">
+			<div class="atable" style="width:375px"><a href="/beer/{{ beer.id }}" style="text-decoration:none">{{ beer.name }}</a></div>
+			<div class="atable" style="width:400px"><a href="/brewery/{{ beer.brewery.id }}" style="text-decoration:none">{{ beer.brewery }}</a></div>
+			<div class="atable">10.0
+			{{ beer.abv }}
+			{{ beer.ibu }}</div>
+			</div>
+		{% endfor %}
 {% endblock %}
