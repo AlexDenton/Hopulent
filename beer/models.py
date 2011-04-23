@@ -12,7 +12,7 @@ class Beer(models.Model):
     ibu = models.FloatField()
     srm = models.FloatField()
     upc = models.IntegerField()
-    filepath = models.CharField(max_length=765)
+    filepath = models.CharField(max_length=765, blank=True)
     descript = models.TextField()
     add_user = models.IntegerField()
     last_mod = models.DateTimeField()

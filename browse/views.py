@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from beer.models import Beer
 from style.models import Style
 from brewery.models import Brewery
+from review.models import Review
 
 def index(request):
     list_of_latest_beers = Beer.objects.all().order_by('last_mod')[:3]

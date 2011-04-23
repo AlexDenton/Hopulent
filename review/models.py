@@ -5,8 +5,7 @@ class Review(models.Model):
 	review_id = models.IntegerField(primary_key=True)
 	user = models.ForeignKey(User)
 	beer = models.ForeignKey('beer.Beer')
-	rating = models.IntegerField()
-	title = models.CharField(max_length=40)
+	rating = models.IntegerField(blank=True, null=True)
 	body = models.CharField(max_length=1024)
 	class Meta:
 		db_table = u'reviews'

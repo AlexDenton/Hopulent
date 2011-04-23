@@ -4,7 +4,7 @@ from style.models import Style
 from category.models import Category
 from review.models import Review
 
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Avg
 from django import forms
@@ -32,22 +32,23 @@ def beer(request, beer_id):
 		reviewForm = ReviewForm(request.POST)
 		if reviewForm.is_valid():
 			body = reviewForm.cleaned_data['body']	
-			r = Review(review_id=Review.objects.len()+1, user=request.user, beer=beer, body=body)
+			r = Review(review_id=Review.objects.count()+1, user=request.user, beer=beer, body=body)
+		        r.save()	
 			return render_to_response(
 				'beer/beer.html', 
-				{'beer': beer, 'reviews': reviews, 'rating': rating, 'user_review': user_review, 'reviewForm': reviewForm},
+				{'beer': beer, 'rating':rating, 'reviews': reviews, 'user_review': r},
 				context_instance=RequestContext(request)
-			)
+			) 
 
 	else:
 		reviewForm = ReviewForm()
 		return render_to_response(
 			'beer/beer.html', 
-			{'beer': beer, 'reviews': reviews, 'rating': rating, 'user_review': user_review, 'reviewForm': reviewForm},
+			{'beer': beer, 'rating':rating, 'reviews': reviews, 'user_review': user_review, 'reviewForm': reviewForm},
 			context_instance=RequestContext(request)
 		)
 
 	return render_to_response('beer/beer.html', 
-		{'beer': beer, 'reviews': reviews, 'rating': rating, 'user_review': user_review, 'reviewForm': reviewForm},
+		{'beer': beer, 'rating':rating, 'reviews': reviews, 'user_review': user_review, 'reviewForm': reviewForm},
 		context_instance=RequestContext(request)
 	)

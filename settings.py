@@ -54,6 +54,9 @@ MEDIA_URL = 'http://hopulent.webfactional.com/media/'
 
 STATIC_URL = '/static/'
 	
+EMAIL_HOST = 'smtp.webfactions.com'
+
+DEFAULT_FROM_EMAIL = ''
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -95,7 +98,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.messages',
+    'django.contrib.messages', 
     'index',
     'browse',
     'beer',
@@ -104,7 +107,7 @@ INSTALLED_APPS = (
     'style',
     'brewerygeocode',
     'review',
-    'signup',
+    'account',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
