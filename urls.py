@@ -28,8 +28,10 @@ urlpatterns = patterns('',
     (r'^search/$', 'search.views.search'),
     (r'^style/(\d+)/$', 'style.views.style'),
     (r'^signup/$', 'account.views.signup'),
-    (r'^account/userprofile/(\d+)/$', 'account.views.user_profile'), 
-    # Example:
+    (r'^account/userprofile/(\d+)/$', 'account.views.user_profile'),
+    (r'^account/editprofile/(\d+)/$', 'account.views.edit_profile'),
+    (r'^account/fileupload/(\d+)/$', 'account.views.directupload'), 
+    #t Example:
     # (r'^Hopulent/', include('Hopulent.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

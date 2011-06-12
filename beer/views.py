@@ -33,7 +33,9 @@ def beer(request, beer_id):
 		if reviewForm.is_valid():
 			body = reviewForm.cleaned_data['body']	
 			r = Review(review_id=Review.objects.count()+1, user=request.user, beer=beer, body=body)
-		        r.save()	
+		        r.save()
+			beer.rating = reviews.aggregate(Avg('rating'))['rating__avg']
+			beer.save()	
 			return render_to_response(
 				'beer/beer.html', 
 				{'beer': beer, 'rating':rating, 'reviews': reviews, 'user_review': r},

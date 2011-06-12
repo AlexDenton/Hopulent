@@ -20,38 +20,38 @@
 
 <table border="0">
 <tr>
-	<td>Picture</td>
+	<td><img src="{{MEDIA_URL}}{{ user_page.get_profile.photo }}"/></td>
 	<td>
 		<table border="0">
 		<tr>
-			<td>Name: {{ user.first_name }} {{ user.last_name }}</td>
+			<td>Name: {{ user_page.first_name }} {{ user_page.last_name }}</td>
 		</tr>
 		<tr>
-			<td>Location: {{ user.get_profile.city }}, {{ user.get_profile.state }} </td>
+			<td>Location: {{ user_page.get_profile.city }}, {{ user_page.get_profile.state }} </td>
 		</tr>
 		<tr>
-			<td>Gender: {{ user.get_profile.gender }} </td>
+			<td>Gender: {{ user_page.get_profile.gender }} </td>
 		</tr>
 		<tr>
-			<td>Age: {{ user.getprofile.age }} </td>
+			<td>Age: {{ user_page.get_profile.age }} </td>
 		</tr>
 		<tr>
-			<td>Birthday: {{ user.get_profile.birthday }}</td>
+			<td>Birthday: {{ user_page.get_profile.birthday }}</td>
 		</tr>
 		<tr>
-			<td>Email: {{ user.email }} </td>
+			<td>Email: {{ user_page.email }} </td>
 		</tr>
 		</table>
 	</td>
 </tr>
 <tr>
-	<td><font size="+2"><b>{{ user.username }}</b></font></td>
+	<td><font size="+2"><b>{{ user_page.username }}</b></font></td>
 </tr>
 <tr>
-	<td><font size="-1">edit profile</font></td>
+	<td><font size="-1"><a href="/account/editprofile/{{ user.id }}">Edit Profile</a></font></td>
 </tr>
 <tr>
-	<td><font size="-1">upload picture</font></td>
+	<td><font size="-1"><a href="/account/fileupload/{{ user.id }}">Upload Picture</a></font></td>
 </tr>
 <tr>
 	<td><font size="-1">account settings</font></td>

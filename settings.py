@@ -56,7 +56,13 @@ STATIC_URL = '/static/'
 	
 EMAIL_HOST = 'smtp.webfactions.com'
 
-DEFAULT_FROM_EMAIL = ''
+EMAIL_HOST_USER = 'hopulent'
+
+EMAIL_HOST_PASSWORD = 'buddyholly'
+
+EMAIL_PORT = '25'
+
+DEFAULT_FROM_EMAIL = 'hopulent@mail.webfaction.com'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
