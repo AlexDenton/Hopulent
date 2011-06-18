@@ -1,7 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 
 <html>
-
 	<head>
 		<title>Hopulent</title>
 		<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}hopulent.css" />
@@ -32,16 +31,13 @@
 
 	<body>
 
-		<div class="main">
-		
-			<div class="header">
-				<a href="/"><img src="{{ MEDIA_URL }}hopulent.png" alt="Hopulent" /></a>
-				<div id="searchwrapper">
-					<form action="/search/" method="post">{% csrf_token %}
-						<input type="text" class="searchbox" name="query" />
-						<input type="image" src="{{ MEDIA_URL }}blank_submit.png" class="searbox_submit" />
+		<div id="wrapper">
+			<div id="header">
+				<a id="logo" href="/"><img src="{{ MEDIA_URL }}hopulentalpha2.png" alt="Hopulent" /></a>
+					<form id="search" action="/search/" method="post">{% csrf_token %}
+						<input type="text" id="searchbox" name="query" placeholder="Search for Beer!"/>
+						<!--<input type="image" src="{{ MEDIA_URL }}blank_submit.png" id="searchbox_submit" />-->
 					</form>
-				</div>
 				
 				<div id="user">
 					{% if user.is_authenticated %}
@@ -74,33 +70,60 @@
 					</div>          
 					{% endif %}
 				</div>
+
+				{% block nav %}
+				<div id="navwrapper">
+					<ul id="nav">
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="/browse">Find Beer</a></li>
+						<li><a href="/learn">Know Beer</a></li>
+						<li><a>The Blog</a></li>
+						<li><a href="/aboutus">The Revolution</a></li>
+						<li><a href="/contribute">Merch</a></li>
+						{% if user.is_authenticated %}
+							<li><a href="/account/userprofile/{{ user.id }}">Profile</a></li>
+						{% endif %}
+					</ul>
+				</div>
+				{% endblock %}
 			</div>
 			
-			{% block nav %}
-			<div class="nav">
-				<ul id="menu">
-					<li class="active"><div><a href="/">Home</a></div></li>
-					<li><div><a href="/browse">Find Beer</a></div></li>
-					<li><div><a href="/learn">Know Beer</a></div></li>
-					<li><div><a href="/aboutus">The Revolution</a></div></li>
-					<li><div><a href="/contribute">Merch</a></div></li>
-					{% if user.is_authenticated %}
-						<li><div><a href="/account/userprofile/{{ user.id }}">Profile</a></div></li>
-					{% endif %}
-				</ul>
-			</div>
-			{% endblock %}
 			
-			<div class="content">
+			
+			<div id="content">
 			
 			{% block content %}
 			<div>
+			{% if user.is_authenticated %}	
 			<div id="newsfeed">
 				<h2>What's hoppin'?</h2>
 				<a href="/signup">Sign Up</a>
 			</div>
+
+			{% else %}
+			<div id="join">
+				<h2>the beer underground</h2>
+				
+				<form id="signup" action="/signup/" method="post">{% csrf_token %}
+					<label id="email_label" for="email">email</label><input type="email" id="email"/> 
+					<label id="password_label" for="password">password</label><input type="password" id="password2"/> 
+					<label id="confirm_label" for="confirm">confirm</label><input type="password" id="confirm"/>
+					<label id="confirm_21_label" for="confirm_21">I am over 21 years of age</label><input type="checkbox" id="confirm_21" />
+					<input type="submit" value="Join now!" id="join_now" />
+				</form>
+			
+				<ul>
+					<li><a>Find Beer</a> in your area, or by your favorite brewery and style.</li>
+					<li><a>Know Beer</a> with our guides on styles, ingredients, glassware, and more!</li>
+					<li>Enjoy our daily <a>Blog</a> on the world of beer, beer news, and featured beers.
+					<li>join <a>The Revolution</a>, get a profile, review beers, and add your friends!</li>
+				</ul>
+			</div>
+			{% endif %}
+
 			<div id="article">
 				<h2>A Call to Arms</h2>
+				<img src="{{ MEDIA_URL }}stone-brewing.jpg">
 				<p>
 					Friends, I call upon you today to rise up in arms against those who claim America needs a King, 
 					those who seek to cheapen and undermine that which we love, those who believe that one size fits 
